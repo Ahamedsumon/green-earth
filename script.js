@@ -109,7 +109,7 @@ const displayCartItems = (plant) => {
                   <p class="pb-1 font-bold">${plant.name}</p>
                 <p><span>৳</span><span><span>${plant.price}</span> x 1</span></p>
               </div>
-              <p onclick="removeCartItems(${plant.price})">X</p>
+              <p onclick="removeCartItems(${plant.price})" class="font-bold text-red-500">X</p>
               </div>
     
     `;
@@ -139,7 +139,7 @@ const displayPlantDetails = (details) => {
     
 <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle ">
   <div class="modal-box">
-  <div class="flex flex-col">
+  <div class="flex flex-col justify-center items-center">
   <p class="text-xl font-bold mb-3">${details.name}</p>
     <div class="w-80 h-60 overflow-hidden object-center">
     <img src="${details.image}" alt="">
@@ -163,14 +163,12 @@ const displayPlantDetails = (details) => {
 };
 
 const removeCartItems = (price) => {
-  // const cartItems = document.getElementById(`cartItems-${id}`);
   const cartItems = document.querySelectorAll(".cart-items");
   cartItems.forEach((item) => {
     item.addEventListener("click", function (e) {
       e.target.parentNode.parentNode.remove();
     });
   });
-  // cartItems.classList.add("hidden");
 
   const cartAmount = document.getElementById("cart-amount");
 
